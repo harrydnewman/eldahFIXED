@@ -1,38 +1,34 @@
-import HelloButton from "../components/HelloButton"
-import { useState } from 'react'
-import Button from "../components/Button"; // add this
+import React from "react";
+// import AddisImage from "./"; 
+import AddisImage from '../assets/images/addis_moon.jpeg'
+import AddisArt from "../assets/images/addis_art.jpeg"; // Import your other image
+import '../styles/styles.css'
 
 export default function Home() {
-    const [text, setText] = useState("Click me") //add this
-    const [helloText, setHelloText] = useState("Hello");
+  return (
+    <div className="App">
+      
+        <h1>microcosm of travels</h1>
+        <h2 id="welcome-message">storytelling through photos</h2>
+     
+      <div className="introduce-button">
+        click here for a special message
+      </div>
 
-    const hellos = [
-        "Hallo I am harry",
-        "Hello",
-        "Hola",
-        "Ciao"
-    ]
-
-    function handleClick() { // add this function and everything inside 
-        if (text == "Click me") {
-            setText("I've been clicked")
-        }
-        else {
-            setText("Click me")
-        }
-    }
-
-    function changeHello() {
-        const randomNumber = Math.floor(Math.random() * hellos.length);
-        setHelloText(hellos[randomNumber]);
-    }
-
-    return (
-        <div>
-            <h1>Home Page</h1>
-            <Button text={helloText} clickFunction={changeHello}></Button>
-            <p>{helloText}</p>
-            <Button text={text} clickFunction={handleClick}></Button>
+      <div className="container">
+        <div className="content" role="main">
+          <h1 className="title">addis ababa, ethiopia</h1>
+          <img src={AddisImage} alt="Addis Moon" />
         </div>
-    )
+      </div>
+
+      <img src={AddisArt} alt="Addis Art" />
+
+      <nav>
+        go <a href="/about">here</a>
+      </nav>
+
+      <footer className="footer">made 2024</footer>
+    </div>
+  );
 }
